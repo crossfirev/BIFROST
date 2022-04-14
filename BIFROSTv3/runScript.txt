@@ -1,0 +1,15 @@
+power on - step off
+10s
+step on - low speed
+10s
+reverse direction
+10s
+high speed
+10s
+reverse speed (Hard hitch around this area, could be before this event or after)
+10s
+low speed
+10s
+step off
+10s
+power off
