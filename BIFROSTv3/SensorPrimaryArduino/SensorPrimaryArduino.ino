@@ -8,6 +8,7 @@
 
 //------------------------------------------------------------------------------------------------------------
 // User Variables       
+//------------------------------------------------------------------------------------------------------------
 //      'timingBudget'      - The frequency at which the VL53L1X (ToF sensor) retrieves data. UNITS: Hertz
 //      'currAnalogPin'     - The analog pin that the signal output of the hall effect current sensor should be connected to.
 #define timingBudget 20

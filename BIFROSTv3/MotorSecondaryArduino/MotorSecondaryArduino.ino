@@ -9,11 +9,17 @@
 // AccelStepper Lib, used for motor control.
 #include <AccelStepper.h>
 
+//------------------------------------------------------------------------------------------------------------
+// User Variables
+//------------------------------------------------------------------------------------------------------------
 // Motor Speed Settings
-//      Stepper Motor RPM = ('motorSpeed' / 'Microstep Setting) * 60s
 //          'microStepSetting'  - The microstep setting on the digital stepper driver. UNITS: Pulses per revolution
-//          'motorSpeed'        - This isn't user defined in the code, but address via the potentiometer. Found otherwise via 'motor.speed()'. UNITS: Steps per second AKA Pulses per second.
+//          'motorSpeed'        - This isn't user defined in the code, but address via the potentiometer. 
+//                                      Found otherwise via 'motor.speed()'. UNITS: Steps per second AKA Pulses per second.
 //          'motorMaxSpeed'     - Clamped maximum speed of the motor. UNITS: Steps per second AKA Pulses per second. 
+//          
+//          Stepper Motor RPM = ('motorSpeed' / 'Microstep Setting) * 60s
+//
 #define microStepSetting    10000
 #define motorMaxSpeed	    200000
 
@@ -28,6 +34,7 @@
 //      'motorDirTogglePin'     - Digital pin for toggling the direction stepped by the motor. Unless changed, this is the black toggle.
 #define motorRunTogglePin	53
 #define motorDirTogglePin   52
+//------------------------------------------------------------------------------------------------------------
 
 // AccelStepper motor construction
 AccelStepper motor(1, motorPinPulMinus, motorPinDirMinus); // (1, 7, 6)
@@ -63,15 +70,15 @@ void loop()
             switch(potSignal)
             {
                 case 0 ... 204:
-                    motor.setSpeed(.1*microStepSetting);    // 10% 
+                    motor.setSpeed(.1*microStepSetting);    // 10% motor speed
                 case 205 ... 408:
-                    motor.setSpeed(.25*microStepSetting);   // 25%
+                    motor.setSpeed(.25*microStepSetting);   // 25% motor speed
                 case 409 ... 612:
-                    motor.setSpeed(.5*microStepSetting);    // 50%
+                    motor.setSpeed(.5*microStepSetting);    // 50% motor speed
                 case 613 ... 816:
-                    motor.setSpeed(microStepSetting);       // 100%
+                    motor.setSpeed(microStepSetting);       // 100% motor speed
                 case 817 ... 1023:
-                    motor.setSpeed(2*microStepSetting);     // 200%
+                    motor.setSpeed(2*microStepSetting);     // 200% motor speed
             }
         }
         else
